@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +9,7 @@
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-solid-straight/css/uicons-solid-straight.css'>
 </head>
 <body>
-    <!-- Header -->
+
 <header>
     <div class="header-container">
         <a href="index.html" class="logo">
@@ -34,13 +34,12 @@
 </header>
 
 
-    <!-- Page Header -->
+    
     <div class="page-indicator">
         <h1> Juegos Destacados</h1>
         <p>¡Descubre los mejores videojuegos seleccionados especialmente para ti!   </p>
     </div>
     
-    <!-- Main Content -->
     <main>
         <div class="cards-grid">
             <div class="card">
@@ -108,7 +107,6 @@
             </div>
         </div>
 
-        <!-- Sección adicional -->
         <section class="featured-section">
             <h2>¿Por qué elegir PixelPlay?</h2>
             <div class="features-grid">
@@ -131,7 +129,6 @@
         </section>
     </main>
 
-    <!-- Footer -->
  <footer>
         <div class="footer-content">
             <div class="social-links">
@@ -149,25 +146,24 @@
     const navMenu = document.querySelector('.nav-menu');
     const navLinks = document.querySelectorAll('.nav-menu a');
 
-    // Función para alternar el menú
     function toggleMenu() {
         mobileMenuBtn.classList.toggle('active');
         navMenu.classList.toggle('active');
         document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : 'auto';
     }
 
-    // Evento para el botón hamburguesa
+   
     mobileMenuBtn.addEventListener('click', toggleMenu);
 
-    // Evento para cada enlace del menú
+
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
-            // Cierra el menú solo si está abierto
+    
             if (navMenu.classList.contains('active')) {
                 toggleMenu();
             }
             
-            // Opcional: Scroll suave al hacer clic
+            
             const targetId = link.getAttribute('href');
             if (targetId && targetId !== '#') {
                 setTimeout(() => {
@@ -175,12 +171,11 @@
                     if (targetElement) {
                         targetElement.scrollIntoView({ behavior: 'smooth' });
                     }
-                }, 300); // Pequeño retraso para permitir que el menú se cierre
+                }, 300);
             }
         });
     });
 
-    // Cierra el menú al hacer clic fuera de él
     document.addEventListener('click', (event) => {
         const isClickInsideMenu = navMenu.contains(event.target) || mobileMenuBtn.contains(event.target);
         if (!isClickInsideMenu && navMenu.classList.contains('active')) {
