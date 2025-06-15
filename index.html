@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelPlay - Tu Tienda de Videojuegos</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-brands/css/uicons-brands.css'>
+</head>
+<body>
+    <!-- Header -->
+<header>
+    <div class="header-container">
+        <a href="index.html" class="logo">
+            <img src="https://res.cloudinary.com/djzo0ohka/image/upload/v1749924307/Generated_Image_June_14__2025_-_11_53AM-removebg-preview_p3dyhq.png" 
+                 alt="PixelPlay" class="logo-icon">
+            <span class="logo-text">PixelPlay</span>
+        </a>
+
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Inicio</a></li>
+                <li><a href="juegos.html">Juegos destacados</a></li>
+                <li><a href="promociones.html">Promociones</a></li>
+            </ul>
+            <button class="mobile-menu" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </div>
+</header>
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Bienvenido a PixelPlay</h1>
+            <p>Descubre los mejores videojuegos al mejor precio. Tu aventura comienza aquí.</p>
+            <div class="cta-buttons">
+                <a href="juegos.html" class="btn">Ver Juegos</a>
+                <a href="promociones.html" class="btn btn-secondary">Ofertas Especiales</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <section class="welcome-section">
+            <h2>Tu Tienda de Videojuegos</h2>
+            <p>En PixelPlay encontrarás la mejor selección de videojuegos para todas las plataformas. Desde los últimos lanzamientos hasta los clásicos más queridos, tenemos todo lo que necesitas para vivir las mejores aventuras digitales.</p>
+        </section>
+
+        <div class="cards-grid">
+            <div class="card">
+                <img src="https://sm.ign.com/t/ign_es/blogroll/default/top10-openworldgames-blogroll-1646922881724_9bt6.2560.jpg" alt="Juegos Destacados">
+                <h3>Juegos Destacados</h3>
+                <p>Explora nuestra selección curada de los mejores videojuegos del momento. Desde aventuras épicas hasta competencias intensas.</p>
+                <a href="juegos.html" class="btn">Explorar Juegos</a>
+            </div>
+            
+            <div class="card">
+                <img src="https://res.cloudinary.com/djzo0ohka/image/upload/v1749906112/Negro_Gris_Aguamarina_Grunge_Gaming_Juegos_Miniatura_de_YouTube_gook8h.png" alt="Promociones">
+                <h3>Ofertas Increíbles</h3>
+                <p>No te pierdas nuestras promociones especiales con descuentos de hasta el 70% en los mejores títulos.</p>
+                <a href="promociones.html" class="btn">Ver Ofertas</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#" title="Instagram"><i class="fi fi-brands-instagram"></i></a>
+                <a href="#" title="Twitter"><i class="fi fi-brands-twitter"></i></a>
+                <a href="#" title="Tik Tok"><i class="fi fi-brands-tik-tok"></i></a>
+                <a href="#" title="Whatsapp"><i class="fi fi-brands-whatsapp"></i></a>
+            </div>
+            <p>&copy; 2025 PixelPlay. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+    const mobileMenuBtn = document.getElementById('mobile-menu');
+    const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-menu a');
+
+    // Función para alternar el menú
+    function toggleMenu() {
+        mobileMenuBtn.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : 'auto';
+    }
+
+    // Evento para el botón hamburguesa
+    mobileMenuBtn.addEventListener('click', toggleMenu);
+
+    // Evento para cada enlace del menú
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            // Cierra el menú solo si está abierto
+            if (navMenu.classList.contains('active')) {
+                toggleMenu();
+            }
+            
+            // Opcional: Scroll suave al hacer clic
+            const targetId = link.getAttribute('href');
+            if (targetId && targetId !== '#') {
+                setTimeout(() => {
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }, 300); // Pequeño retraso para permitir que el menú se cierre
+            }
+        });
+    });
+
+    // Cierra el menú al hacer clic fuera de él
+    document.addEventListener('click', (event) => {
+        const isClickInsideMenu = navMenu.contains(event.target) || mobileMenuBtn.contains(event.target);
+        if (!isClickInsideMenu && navMenu.classList.contains('active')) {
+            toggleMenu();
+        }
+    });
+</script>
+</body>
+</html>
