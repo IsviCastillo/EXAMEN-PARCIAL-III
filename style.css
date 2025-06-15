@@ -742,6 +742,9 @@ footer {
 }
 
 @media (max-width: 992px) {
+    .logo-icon{
+        height: 70px;
+    }
     .nav-menu {
         position: fixed;
         top: 80px; /* Ajustado para que quede justo debajo del header */
@@ -921,7 +924,7 @@ footer {
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 480px) and (max-width: 767px) {
     .header-container {
         padding: 0 0.5rem;
     }
@@ -977,7 +980,7 @@ footer {
     }
     
     .card img {
-        height: 150px;
+        height: auto;
     }
     
     .btn {
